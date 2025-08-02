@@ -1,6 +1,6 @@
 <p align="center">
     <img src="https://github.com/rose-pine/rose-pine-theme/raw/main/assets/icon.png" width="80" />
-    <h2 align="center">Rosé Pine for App</h2>
+    <h2 align="center">Rosé Pine for yazi</h2>
 </p>
 
 <p align="center">All natural pine, faux fur and a bit of soho vibes for the classy minimalist</p>
@@ -13,35 +13,77 @@
 
 ## Usage
 
-1. Open App
-2. Under settings, import `rose-pine.theme`
-3. Select `Rosé Pine` from the themes dropdown
+Yazi uses a layered configuration system that allows for maximum flexibility:
+
+```
+~/.config/yazi/
+├── theme.toml          # Your personal theme configuration
+└── flavors/            # Directory for installed flavors
+    └── *.yazi/         # Individual flavor preset
+```
+
+Flavors are pre-made, complete theme packages that include:
+
+- `flavor.toml`: Complete UI styling (colors, borders, styles)
+- `tmtheme.xml`: Syntax highlighting for code preview
+
+Your `theme.toml` is your personal configuration that can:
+
+- Select which flavor to use
+- Override specific styles from the flavor
+- Add additional configurations like custom icons
+
+### Step 1: Install the Flavor
+
+- Using ya pkg (Recommended)
+
+    ```bash
+    ya pkg add Mintass/rose-pine[-variant]
+    ```
+
+- Manual Installation
+
+    ```bash
+    # Clone the repository
+    git clone https://github.com/Mintass/yazi.git
+    cd yazi
+
+    # Copy your preferred flavor to Yazi's configuration
+    cp -r flavors/rose-pine[-variant].yazi ~/.config/yazi/flavors/
+    ```
+    
+
+### Step 2: Configure theme.toml
+
+Create or edit `~/.config/yazi/theme.toml` to activate the flavor:
+
+```toml
+[flavor]
+dark = "rose-pine"    # or "rose-pine-moon"
+# or light = "rose-pine-dawn"
+```
+
+> note: Keep your `theme.toml` minimal. Only add configurations if you want to override the flavor's preset.
+
+### Step 3: Add Icon Colors (Optional)
+
+This repository includes matching icon colors in the `themes/` directory. These are optional enhancements that color file type icons to match Rosé Pine platte:
+
+```bash
+# Append icon configuration to your theme.toml
+cat themes/rose-pine[-variant].toml >> ~/.config/yazi/theme.toml
+```
+
+
 
 ## Gallery
 
-![Rosé Pine with App](https://user-images.githubusercontent.com/1474821/166155319-06796439-95a7-4aea-910e-927c1f24518e.png)
+Rosé Pine
+![rose-pine](https://github.com/user-attachments/assets/adfbd51e-2145-470d-858a-72a2a6e9ca4f)
 
-## Thanks to
+Rosé Pine Moon
+![rose-pine-moon](https://github.com/user-attachments/assets/dca335ad-b4a0-4492-9c2c-ba887c18e2dc)
 
-- [You, it's you!](https://github.com/<username>)
+Rosé Pine Dawn
+![rose-pine-dawn](https://github.com/user-attachments/assets/fee7b58d-38a3-4b5f-9254-d7bdc3b5d0a0)
 
-## Contributing
-
-> Prefer using [@rose-pine/build](https://github.com/rose-pine/build) when possible
-
-Modify `template.json` using Rosé Pine variables, then build variants:
-
-```sh
-npx @rose-pine/build@latest
-```
-
-## Style guide
-
-> Be sure to remove this section 😌
-
-- Lowercase meta files, eg. `readme.md`
-- Repo name should be the simplest version of the app name, eg. iterm instead of iTerm2
-- Add a description and topics to automatically show the theme on [rosepinetheme.com/themes](https://rosepinetheme.com/themes)
-    - Description should read "Soho vibes for App" where "App" is the display name
-    - Topics should include [existing categories](https://rosepinetheme.com/themes)
-    - Generate and upload social image via [Rosé Pine Images](https://rose-pine-images.vercel.app)
