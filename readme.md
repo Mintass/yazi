@@ -45,7 +45,7 @@ Your `theme.toml` is your personal configuration that can:
 
     ```bash
     # Clone the repository
-    git clone https://github.com/Mintass/yazi.git
+    git clone https://github.com/rose-pine/yazi.git
     cd yazi
 
     # Copy your preferred flavor to Yazi's configuration
